@@ -24,8 +24,8 @@
       <p>Escolha a opção clicando em um dos botões abaixo</p>
 		<p>É altamente recomendado que você esteja com seu <strong>GPS</strong> ligado, para maior precisão</p>
       <br />
-      <a href="#" class="ui-btn ui-corner-all" onclick="getLocation()">Gravar local</a>
-      <a href="#" class="ui-btn ui-corner-all" onclick="mostrar()">Mostrar último local</a>
+      <a href="javascript:getLocation()" class="ui-btn ui-corner-all" onclick="getLocation()">Gravar local</a>
+      <a href="javascript:mostrar()" class="ui-btn ui-corner-all" onclick="mostrar()">Mostrar último local</a>
       <br />
       <p id="result"></p>
     </div>
@@ -68,7 +68,7 @@ function mostrar() {
 	if (localStorage.getItem("lat")) {
 		lat = localStorage.getItem("lat");
 		lon = localStorage.getItem("lon");
-		window.location = "http://google.com/maps/?q=" + lat + "," + lon;
+		abrir();
 	}
 	else {
 		x.style.display="block";
@@ -91,6 +91,10 @@ function showPosition(position){
 	localStorage.setItem("lat", position.coords.latitude);
 	localStorage.setItem("lon", position.coords.longitude);
 
+}
+
+function abrir() {
+navigator.app.loadUrl("http://www.google.com/maps/?q=" + lat + "," + lon, { openExternal:true } );
 }
 </script>
 </body>
