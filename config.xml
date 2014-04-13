@@ -2,7 +2,7 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "onde/w.pw.zer0"
-        version     = "0.0.1" >
+        version     = "0.0.2" >
 
     <name>Onde mesmo?</name>
 
@@ -14,7 +14,7 @@
         ZER0 Soluções Interativas
     </author>
     
-    <preference name="permissions" value="none"/>
+    <preference name="permissions" value="geolocation"/>
 	
 	<gap:platform name="android" />
     
