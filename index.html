@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<script src="phonegap.js"></script>
+<script src="cordova.js"></script>
+<title>Onde mesmo?</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css" />
+<link rel="stylesheet" href="css/jqm-icon-pack-2.0-original.css" />
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.mobile-1.4.2.min.js"></script>
+<link rel="stylesheet"  href="css/icon-pack-custom.css" />
+<link rel="stylesheet"  href="css/estilo.css" />
+</head>
+<body>
+<div data-role="page" id="home" data-url="home" data-theme="b" data-title="Onde Mesmo?">
+
+    <div data-role="header" data-theme="b">
+        <img src="imgs/logo.png" alt="Onde Mesmo?">
+    </div>
+
+    <div data-role="content">
+      <p>Escolha a opção clicando em um dos botões abaixo</p>
+		<p>É altamente recomendado que você esteja com seu <strong>GPS</strong> ligado, para maior precisão</p>
+      <br />
+      <a href="#" class="ui-btn ui-corner-all" onclick="getLocation()">Gravar local</a>
+      <a href="#" class="ui-btn ui-corner-all" onclick="mostrar()">Mostrar último local</a>
+      <br />
+      <p id="result"></p>
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-theme="b" id="footer">
+			<a href="#sobre" data-role="button" data-icon="info-circle">Sobre</a>
+			<a href="#" data-role="button" data-icon="android" onclick="localStorage.clear();">Limpa</a>
+    </div>
+</div>
+  
+<div data-role="page" id="sobre" data-url="sobre" data-theme="b" data-title="Sobre - Onde Mesmo?">
+
+    <div data-role="header" data-theme="b">
+        <img src="imgs/logo.png" alt="Onde Mesmo?">
+    </div>
+
+    <div data-role="content">
+      <p><strong>Onde Mesmo?</strong> é um aplicativo em que você grava uma localização, para utilizá-la futuramente.</p>
+      <p>Suas principais utilidades são:</p>      
+      <ul>
+      	<li>Encontrar seu carro no estacionamento</li>
+      	<li>Marcar um ponto de encontro, caso se perca de um grupo</li>
+      	<li>Gravar a localização de algo para voltar mais tarde</li>
+      	<li>etc.</li>
+      </ul>
+      <br />
+      <a href="#home" data-role="button" data-icon="chevron-circle-left">Voltar</a>
+      <br />
+      <p id="result"></p>
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-theme="b" id="footer">
+			<a href="#about" data-role="button" data-icon="info-circle">Sobre</a>
+			<a href="#about" data-role="button" data-icon="android" onclick="localStorage.clear();">Limpa</a>
+    </div>
+</div>
+<script>
+var x=document.getElementById("result");
+function mostrar() {
+	if (localStorage.getItem("lat")) {
+		lat = localStorage.getItem("lat");
+		lon = localStorage.getItem("lon");
+		window.location = "http://google.com/maps/?q=" + lat + "," + lon;
+	}
+	else {
+		x.style.display="block";
+		x.innerHTML="Antes de mostrar sua localização precisamos gravá-la. Clique em \"Gravar local\", e só então, poderemos mostrá-lo.";
+	}
+}
+
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="Seu dispositivo não permite que encontremos sua localização";}
+  }
+function showPosition(position){
+	x.style.display = "block";
+	
+	x.innerHTML="Suas coordenadas foram salvas com sucesso";
+	localStorage.setItem("lat", position.coords.latitude);
+	localStorage.setItem("lon", position.coords.longitude);
+
+}
+</script>
+</body>
+</html>
