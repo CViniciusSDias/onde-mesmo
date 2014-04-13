@@ -67,7 +67,6 @@
 
     <div data-role="footer" data-position="fixed" data-theme="b" id="footer">
 			<a href="#about" data-role="button" data-icon="info-circle">Sobre</a>
-			<a href="#about" data-role="button" data-icon="android" onclick="localStorage.clear();">Limpa</a>
     </div>
 </div>
 <script>
@@ -88,9 +87,6 @@ function mostrar() {
 
 
 function onSuccess(position) {
-	x.style.display="block";
-	x.innerHTML="Aguarde...";
-	x.scrollIntoView();
 	localStorage.setItem("lat", position.coords.latitude);
 	localStorage.setItem("lon", position.coords.longitude);
 	x.innerHTML="Suas coordenadas foram salvas com sucesso";
@@ -103,6 +99,9 @@ function onError(error) {
 	x.innerHTML='Erro: '    + error.code    + '\n' + 'Mensagem: ' + error.message;
 }
 function getLocation() {
+	x.style.display="block";
+	x.innerHTML="Aguarde...";
+	x.scrollIntoView();
 	navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });	
 }
 
