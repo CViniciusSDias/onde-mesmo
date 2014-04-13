@@ -2,24 +2,17 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "onde/w.pw.zer0"
-        version     = "0.0.3" >
-
-    <name>Onde mesmo?</name>
-
-    <description>
-        Onde Mesmo? é um aplicativo em que você grava uma localização, para utilizá-la futuramente.
-    </description>
-
-    <author href="http://zer0.w.pw/" email="contato@zer0.w.pw">
-        ZER0 Soluções Interativas
-    </author>
-    
-    <preference name="permissions" value="geolocation"/>
-	
+        version     = "0.0.4" >
+   <name>Onde mesmo?</name>
+   <description>
+       Onde Mesmo? é um aplicativo em que você grava uma localização, para utilizá-la futuramente.
+   </description>
+   <author href="http://zer0.w.pw/" email="contato@zer0.w.pw">
+       ZER0 Soluções Interativas
+   </author>
+   <gap:plugin name="org.apache.cordova.geolocation" version="0.3.6" />
+   <preference name="permissions" value="geolocation"/>
 	<gap:platform name="android" />
-    
    <icon src="icon.png" />
-	
    <access origin="*"/>
-
 </widget>
