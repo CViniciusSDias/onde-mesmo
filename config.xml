@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <widget xmlns   = "http://www.w3.org/ns/widgets"
+<widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "onde/w.pw.zer0"
-        version     = "1.2.10" >
+        version     = "1.2.11" >
    <name>Onde mesmo?</name>
    <description>
        Onde Mesmo? é um aplicativo em que você grava uma localização, para utilizá-la futuramente.
@@ -14,9 +14,9 @@
    <preference name="permissions" value="geolocation"/>
 	<gap:platform name="android" />
    <icon src="icon.png" />
-   <icon src="icons/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
-	<icon src="icons/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
-	<icon src="icons/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
-	<icon src="icons/android/xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
+   <icon src="mdpi.png" gap:platform="android" gap:density="mdpi" />
+	<icon src="hdpi.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+	<icon src="xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
    <access origin="*"/>
 </widget>
