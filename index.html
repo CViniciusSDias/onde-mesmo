@@ -95,6 +95,7 @@ function onSuccess(position) {
 	localStorage.setItem("lat", position.coords.latitude);
 	localStorage.setItem("lon", position.coords.longitude);
 	x.innerHTML="Suas coordenadas foram salvas com sucesso";
+	x.scrollIntoView();
 };
 
 function onError(error) {
