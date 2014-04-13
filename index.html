@@ -79,6 +79,7 @@ function mostrar() {
 
 
 function onSuccess(position) {
+	x.style.display="block";
 	x.innerHTML="Aguarde...";
 	localStorage.setItem("lat", position.coords.latitude);
 	localStorage.setItem("lon", position.coords.longitude);
@@ -86,7 +87,8 @@ function onSuccess(position) {
 };
 
 function onError(error) {
-    x.innerHTML='Erro: '    + error.code    + '\n' + 'Mensagem: ' + error.message;
+	x.style.display="block";	
+	x.innerHTML='Erro: '    + error.code    + '\n' + 'Mensagem: ' + error.message;
 }
 function getLocation() {
 	navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });	
