@@ -72,6 +72,7 @@ function mostrar() {
 	}
 	else {
 		x.style.display="block";
+		x.scrollIntoView();
 		x.innerHTML="Antes de mostrar sua localização precisamos gravá-la. Clique em \"Gravar local\", e só então, poderemos mostrá-lo.";
 	}
 }
@@ -81,37 +82,20 @@ function mostrar() {
 function onSuccess(position) {
 	x.style.display="block";
 	x.innerHTML="Aguarde...";
+	x.scrollIntoView();
 	localStorage.setItem("lat", position.coords.latitude);
 	localStorage.setItem("lon", position.coords.longitude);
 	x.innerHTML="Suas coordenadas foram salvas com sucesso";
 };
 
 function onError(error) {
-	x.style.display="block";	
+	x.style.display="block";
+	x.scrollIntoView();
 	x.innerHTML='Erro: '    + error.code    + '\n' + 'Mensagem: ' + error.message;
 }
 function getLocation() {
 	navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });	
 }
-
-
-
-
-//function getLocation()
-//  {
-//  if (navigator.geolocation)
-//    {
-//    navigator.geolocation.getCurrentPosition(showPosition);
-//    }
-//  else{x.innerHTML="Seu dispositivo não permite que encontremos sua localização";}
-//  }
-//function showPosition(position){
-//	x.style.display = "block";
-//	
-//	x.innerHTML="Suas coordenadas foram salvas com sucesso";
-//	localStorage.setItem("lat", position.coords.latitude);
-//	localStorage.setItem("lon", position.coords.longitude);
-//}
 
 function abrir() {
 navigator.app.loadUrl("http://www.google.com/maps/?q=" + lat + "," + lon, { openExternal:true } );
