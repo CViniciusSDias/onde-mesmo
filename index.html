@@ -129,7 +129,7 @@ function onError(error) {
 }
 function getLocation() {
 	x.style.display="block";
-	x.innerHTML="Aguarde...";
+	x.innerHTML="Aguarde... <br /><progress></progress>";
 	x.scrollIntoView();
 	navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });	
 }
