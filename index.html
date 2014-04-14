@@ -22,7 +22,7 @@
 
     <div data-role="content">
       <p>Escolha a opção clicando em um dos botões abaixo</p>
-		<p><small>Para dicas de precisão, clique em sobre, no fim da página</small></p>
+		<p><small>Para dicas de precisão, clique em "Instruções", no fim da tela</small></p>
       <br />
       <a href="javascript:getLocation()" class="ui-btn ui-corner-all" onclick="getLocation()">Gravar local</a>
       <a href="javascript:mostrar()" class="ui-btn ui-corner-all" onclick="mostrar()">Mostrar último local</a>
@@ -30,9 +30,14 @@
       <p id="result"></p>
     </div>
 
-    <div data-role="footer" data-position="fixed" data-theme="b" id="footer">
-			<a href="#sobre" data-role="button" data-icon="info-circle">Sobre</a>
-    </div>
+	<div data-role="footer" data-position="fixed" data-theme="b" id="footer">
+		<div id="navgroup">
+			<div data-role="controlgroup" data-type="horizontal">
+				<a href="#sobre" data-role="button" data-icon="info-circle">Sobre</a>
+				<a href="#instrucoes" data-role="button" data-icon="question-circle">Instruções</a>
+			</div>
+		</div>
+	</div>
 </div>
   
 <div data-role="page" id="sobre" data-url="sobre" data-theme="b" data-title="Sobre - Onde Mesmo?">
@@ -50,6 +55,23 @@
       	<li>Gravar a localização de algo para voltar mais tarde</li>
       	<li>etc.</li>
       </ul>
+      <br />
+      <a href="#home" data-role="button" data-icon="chevron-circle-left">Voltar</a>
+      <br />
+      <p id="result"></p>
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-theme="b" id="footer">
+			<h6>Sobre - Onde mesmo?</h6>
+    </div>
+</div>
+
+<div data-role="page" id="instrucoes" data-url="instrucoes" data-theme="b" data-title="Instruções - Onde Mesmo?">
+    <div data-role="header" data-theme="b">
+        <img src="imgs/logo.png" alt="Onde Mesmo?">
+    </div>
+
+    <div data-role="content">
       <h2>Importante!</h2>
       <p>Para manter sua privacidade e segurança, <strong>Onde Mesmo?</strong> não tem permissões para alterar nenhum tipo de configuração em seu celular</p>
       <p>Para maior precisão ao guardar sua localização, siga as seguintes instruções:</p>
@@ -60,13 +82,20 @@
       	<li>Marque a opção "Utilizar satélites GPS"</li>
       </ol>
       <br />
+      <h2>Instruções de uso</h2>
+      <p>Ao (por exemplo) estacionar seu carro, clique em "Gravar local", e aguarde até que suas coordenadas sejam salvas no dispositivo.</p>
+      <p>Após ter as coordenadas salvas, sinta-se livre para fechar o aplicativo, e utilizar seu smartphone livremente.</p>
+      <p>No momento de retornar ao local gravado (no caso, seu carro), abra novamente o aplicativo, e clique em "Mostrar último local".</p>
+      <p>O aplicativo abrirá um link para o <i>Google Maps</i>. Dependendo da versão de seu sistema Android, podem aparecer opções para qual aplicativo utilizar nesta ação. Caso a opção <i>Mapas</i> esteja disponível, é recomendado que a utilize.</p>
+      <p>Ao abrir o aplicativo <i>Mapas</i>, o centro da tela, será o local gravado. Aperte e segure no centro da tela, para <strong>adicionar um marcador</strong>. Após isso, vá na opção <strong>trajeto</strong>, para que seu dispositivo lhe mostre o caminho até o local.</p>
+      <p>Caso a opção <i>Mapas</i> não esteja disponível, o link será aberto no navegador de seu dispositivo. Após completamente carregado, clique no botão &#8625; para ter as instruções até o local.</p>
+      <address>Em caso de dúvidas: <a href="mailto:contato@zer0.w.pw">contato@zer0.w.pw</a></address>
       <a href="#home" data-role="button" data-icon="chevron-circle-left">Voltar</a>
       <br />
-      <p id="result"></p>
     </div>
 
     <div data-role="footer" data-position="fixed" data-theme="b" id="footer">
-			<h6>Onde mesmo?</h6>
+			<h6>Instruções - Onde mesmo?</h6>
     </div>
 </div>
 <script>
@@ -108,6 +137,17 @@ function getLocation() {
 function abrir() {
 navigator.app.loadUrl("http://www.google.com/maps/?q=" + lat + "," + lon, { openExternal:true } );
 }
+
+
+function sair() {
+if (navigator.app) {
+	navigator.app.exitApp();
+}
+else if (navigator.device) {
+	navigator.device.exitApp();
+}
+}
+document.addEventListener("backbutton", sair(), false);
 </script>
 </body>
 </html>
