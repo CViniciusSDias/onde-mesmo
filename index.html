@@ -28,7 +28,7 @@
       <a href="javascript:mostrar()" class="ui-btn ui-corner-all" onclick="mostrar()">Mostrar último local</a>
       <br />
       <p id="result"></p>
-	  <progress id="progresso">Coletando suas coordenadas</progress>
+	  <progress id="progresso" style="display:none;">Coletando suas coordenadas</progress>
     </div>
 
 	<div data-role="footer" data-position="fixed" data-theme="b" id="footer">
@@ -133,6 +133,7 @@ function getLocation() {
 	document.getElementById("progresso").style.display = "block";
 	x.scrollIntoView();
 	navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });	
+	document.getElementById("progresso").style.display = "none";
 }
 
 function abrir() {
