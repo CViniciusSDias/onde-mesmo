@@ -28,6 +28,7 @@
       <a href="javascript:mostrar()" class="ui-btn ui-corner-all" onclick="mostrar()">Mostrar último local</a>
       <br />
       <p id="result"></p>
+	  <progress id="progresso">Coletando suas coordenadas</progress>
     </div>
 
 	<div data-role="footer" data-position="fixed" data-theme="b" id="footer">
@@ -58,7 +59,6 @@
       <br />
       <a href="#home" data-role="button" data-icon="chevron-circle-left">Voltar</a>
       <br />
-      <p id="result"></p>
     </div>
 
     <div data-role="footer" data-position="fixed" data-theme="b" id="footer">
@@ -130,6 +130,7 @@ function onError(error) {
 function getLocation() {
 	x.style.display="block";
 	x.innerHTML="Aguarde...";
+	document.getElementById("progresso").style.display = "block";
 	x.scrollIntoView();
 	navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });	
 }
