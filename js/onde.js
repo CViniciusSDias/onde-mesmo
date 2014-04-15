@@ -27,7 +27,33 @@ function getLocation() {
 	x.style.display="block";
 	x.innerHTML="Aguarde... <br /><progress></progress>";
 	x.scrollIntoView();
-	navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });	
+	
+	window.plugins.diagnostic.isGpsEnabled(gpsHabilitado);
+	window.plugins.diagnostic.isWirelessNetworkLocationEnabled(sfHabilitado);
+	
+	function gpsHabilitado(result) {
+      if (result)
+		{
+			function sfHabilitado(result)
+			{
+				navigator.notification.confirm("A localização por redes sem fio está habilitada. É recomendado que apenas o GPS esteja. Deseja alterar essa configuração?", gpsConfig, "Habilitar somente GPS", "Configurações,Continuar")
+				function gpsConfig(buttonIndex) {
+					if(buttonIndex == 0)
+					{
+						window.plugins.diagnostic.switchToLocationSettings();
+					}
+				}
+			}
+			else
+			{
+			navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });
+			}
+		}
+      else
+		{
+         alert("GPS OFF");
+		}
+   }
 }
 
 function abrir() {
