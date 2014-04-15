@@ -11,12 +11,7 @@
        ZER0 Soluções Interativas
    </author>
    <gap:plugin name="org.apache.cordova.geolocation" version="0.3.6" />
-   <gap:plugin name="net.avantic.diagnosticPlugin.Diagnostic" />
-   <gap:plugin name="org.apache.cordova.dialogs" version="0.2.6" />
    <preference name="permissions" value="geolocation"/>
-   <preference name="permissions" value="location"/>
-   <preference name="permissions" value="gps"/>
-   <preference name="permissions" value="ACCESS_WIFI_STATE"/>
 	<gap:platform name="android" />
    <icon src="icon.png" />
    <icon src="mdpi.png" gap:platform="android" gap:density="mdpi" />
