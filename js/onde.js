@@ -31,7 +31,7 @@ function getLocation() {
 }
 
 function abrir() {
-navigator.app.loadUrl("http://www.google.com/maps/?q=" + lat + "," + lon, { openExternal:true } );
+window.open("http://www.google.com/maps/?q=" + lat + "," + lon, "_blank" );
 }
 
 

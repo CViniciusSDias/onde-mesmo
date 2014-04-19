@@ -2,10 +2,10 @@
 <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "onde/w.pw.zer0"
-        version     = "1.3.18" >
+        version     = "0.1" >
    <name>Onde mesmo?</name>
    <description>
-       Onde Mesmo? é um aplicativo em que você grava uma localização, para utilizá-la futuramente.
+       Onde Mesmo? é um aplicativo em que você grava sua localização, para encontrá-la futuramente.
    </description>
    <author href="http://zer0.w.pw/" email="contato@zer0.w.pw">
        ZER0 Soluções Interativas
